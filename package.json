@@ -1,0 +1,24 @@
+{
+  "name": "codenotes",
+  "version": "1.0.0",
+  "description": "MEAN app to keep track of coding resources I've found helpful",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericderegt/CodeNotes.git"
+  },
+  "author": "Eric deRegt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericderegt/CodeNotes/issues"
+  },
+  "homepage": "https://github.com/ericderegt/CodeNotes#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.42",
+    "mongoose": "^4.1.5"
+  }
+}
