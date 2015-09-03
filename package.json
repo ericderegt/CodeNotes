@@ -18,7 +18,9 @@
   "homepage": "https://github.com/ericderegt/CodeNotes#readme",
   "dependencies": {
     "express": "^4.13.3",
+    "jade": "^1.11.0",
     "mongodb": "^2.0.42",
-    "mongoose": "^4.1.5"
+    "mongoose": "^4.1.5",
+    "morgan": "^1.6.1"
   }
 }
