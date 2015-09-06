@@ -13,8 +13,8 @@ module.exports = function() {
   var app = express();
 
   // set view path and engine
-  app.set('views', path.join(__dirname, '../app/views'));
-  app.set('view engine', 'jade');
+  // app.set('views', path.join(__dirname, '../app/views'));
+  // app.set('view engine', 'jade');
 
   if (process.env.NODE_ENV === 'development') {
     // if development, use logging and disable view cache
@@ -26,10 +26,12 @@ module.exports = function() {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static('public'));
 
 
-  app.use('/', indexRoutes);
+  app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+  })
 
   // return Express server instance, called in server.js
   return app;

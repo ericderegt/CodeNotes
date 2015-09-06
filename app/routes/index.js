@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('index', {
-    title: 'CodeNotes'
-  });
-});
+  res.sendfile(__dirname + '/index.html');
+})
 
 module.exports = router;

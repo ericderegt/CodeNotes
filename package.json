@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/ericderegt/CodeNotes#readme",
   "dependencies": {
+    "angular": "^1.4.5",
+    "angular-route": "^1.4.5",
     "body-parser": "^1.13.3",
     "cookie-parser": "^1.3.5",
     "express": "^4.13.3",
@@ -27,5 +29,8 @@
     "morgan": "^1.6.1",
     "passport": "^0.3.0",
     "passport-facebook": "^2.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1"
   }
 }
