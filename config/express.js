@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 
 
 // Routes
-var indexRoutes = require('../app/routes/index');
+// var indexRoutes = require('../app/routes/index');
 
 module.exports = function() {
 
@@ -29,9 +29,9 @@ module.exports = function() {
   app.use(express.static('public'));
 
 
-  app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
-  })
+  // app.get('/', function(req, res) {
+  //   res.sendFile(__dirname + 'dist/index.html');
+  // })
 
   // return Express server instance, called in server.js
   return app;
