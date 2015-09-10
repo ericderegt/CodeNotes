@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 
 
 // Routes
-// var indexRoutes = require('../app/routes/index');
+var notesRoutes = require('../app/routes/notes');
 
 module.exports = function() {
 
@@ -29,9 +29,9 @@ module.exports = function() {
   app.use(express.static('public'));
 
 
-  // app.get('/', function(req, res) {
-  //   res.sendFile(__dirname + 'dist/index.html');
-  // })
+  // include Notes Routes
+  notesRoutes(app);
+
 
   // return Express server instance, called in server.js
   return app;
