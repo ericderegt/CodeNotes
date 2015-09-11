@@ -1,5 +1,7 @@
 var angular = require('angular');
 require('angular-route');
+require('jquery');
+require('bootstrap');
 
 angular.module('codeNotes', ['ngRoute'])
   

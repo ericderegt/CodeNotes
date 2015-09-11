@@ -1,14 +1,16 @@
+var express = require('express');
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var config = require('./config/config')[env];
 
-var mongoose = require('mongoose');
-var url = 'mongodb://localhost:27017/codeNotes-dev';
-var db = mongoose.connect(url, function(err) {
-  if (err) {
-    console.log(err);
-  }
-  console.log('connected');
-});
+var app = express();
 
-var app = require('./config/express')(db);
+require('./config/express')(app, config);
 
-app.listen(3000);
+// initialize mongoose connection and register models
+require('./config/mongoose')(config);
+
+require('./app/routes/notes')(app);
+
+
+app.listen(config.port);
 console.log('App started on port 3000');

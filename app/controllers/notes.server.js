@@ -1,21 +1,14 @@
-var mongoose = require('mongoose');
-
-
-// checks if Card model is registered already, otherwise register it
-if (mongoose.models.Card) {
-  Card = mongoose.model('Card');
-} else {
-  Card = mongoose.model('Card', require('../models/article'));
-}
+var mongoose = require('mongoose'),
+  Note = mongoose.model('Note');
 
 exports.list = function(req, res) {
-  Card.find().exec(function(err,cards) {
+  Note.find().exec(function(err,notes) {
     if (err) {
       return res.status(400).send({
         message: 'error'
       });
     } else {
-      res.json(cards);
+      res.json(notes);
     };
   });
 };

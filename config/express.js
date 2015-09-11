@@ -5,12 +5,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 
-// Routes
-var notesRoutes = require('../app/routes/notes');
-
-module.exports = function() {
-
-  var app = express();
+module.exports = function(app, config) {
 
   // set view path and engine
   // app.set('views', path.join(__dirname, '../app/views'));
@@ -26,14 +21,6 @@ module.exports = function() {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  app.use(express.static('public'));
-
-
-  // include Notes Routes
-  notesRoutes(app);
-
-
-  // return Express server instance, called in server.js
-  return app;
-}
+  app.use(express.static(config.rootPath + '/public'));
+};
 

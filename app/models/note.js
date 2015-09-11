@@ -1,8 +1,8 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-// Card Schema
-var CardSchema = new Schema({
+// Note Schema
+var NoteSchema = new Schema({
   title: {
     type: String,
     default: '',
@@ -15,10 +15,16 @@ var CardSchema = new Schema({
     trim: true,
     required: 'Content is required'
   },
+  link: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Link is required'
+  },
   created: {
     type: Date,
     default: Date.now
   }
 });
 
-module.exports = mongoose.model('Card', CardSchema);
+module.exports = mongoose.model('Note', NoteSchema);
