@@ -12,3 +12,15 @@ exports.list = function(req, res) {
     };
   });
 };
+
+exports.delete = function(req, res) {
+  Note.remove({ _id: req.params.noteId }, function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: 'error'
+      });
+    } else {
+      res.json('Item deleted');
+    };
+  });
+};

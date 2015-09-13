@@ -65,3 +65,15 @@ body {
 .main .page-header {
   margin-top: 0;
 }
+
+.panel {
+  border-color: #ffffff;
+  border-radius: 0px;
+  background-color: #F2F1ED;
+}
+
+.panel-heading {
+  background-color: #F2F1ED;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

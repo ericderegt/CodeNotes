@@ -1,10 +1,15 @@
 <div ng-controller="NoteCtrl">
-  <div class="panel panel-default" ng-repeat="note in notes">
-    <div class="panel-heading">
-      <h4>{{note.title}}</h4>
-    </div>
-    <div class="panel-body">
-      {{note.content}}
+  <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="note in notes">
+    <div class="panel panel-default">
+      <div class="panel-heading panel-title">
+        {{note.title}}
+        <button type="button" class="btn btn-link" ng-click="deleteNote(note._id)">
+          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="panel-body">
+        {{note.content}}
+      </div>
     </div>
   </div>
 </div>

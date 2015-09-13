@@ -3,5 +3,11 @@ export default function($scope, NoteService) {
     $scope.notes = data;
   });
 
-  $scope.test = 'huh';
+  $scope.deleteNote = function(noteId) {
+    NoteService.delete({ id: noteId });
+    
+    NoteService.query(function(data) {
+      $scope.notes = data;
+    });
+  };
 };

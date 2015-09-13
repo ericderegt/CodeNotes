@@ -21,6 +21,12 @@ var NoteSchema = new Schema({
     trim: true,
     required: 'Link is required'
   },
+  category: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Category is required'
+  },
   created: {
     type: Date,
     default: Date.now

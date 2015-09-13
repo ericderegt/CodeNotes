@@ -28,16 +28,19 @@ var seedNotes = [
   {
     title: "Mongoose Docs",
     content: "Great docs",
-    link: "http://www.mongoosejs.com"
+    link: "http://www.mongoosejs.com",
+    category: "JavaScript"
   },
   {
     title: "MEAN Course",
     content: "Pluralsight",
-    link: "http://www.pluralsight.com"
+    link: "http://www.pluralsight.com",
+    category: "JavaScript"
   },
   {  
     title: "React",
     content: "Training site",
-    link: "http://www.react-training.com"
+    link: "http://www.react-training.com",
+    category: "JavaScript"
   }
 ];
