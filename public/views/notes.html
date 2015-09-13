@@ -1,3 +1,10 @@
 <div ng-controller="NoteCtrl">
-  <p>{{notes}}</p>
+  <div class="panel panel-default" ng-repeat="note in notes">
+    <div class="panel-heading">
+      <h4>{{note.title}}</h4>
+    </div>
+    <div class="panel-body">
+      {{note.content}}
+    </div>
+  </div>
 </div>

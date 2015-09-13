@@ -1,5 +1,4 @@
 var app = require('angular').module('codeNotes');
+import NoteCtrl from './NoteCtrl';
 
-app.controller('NoteCtrl', function($scope) {
-  $scope.notes = 'test';
-});
+app.controller('NoteCtrl', NoteCtrl);

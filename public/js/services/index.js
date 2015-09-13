@@ -1,3 +1,5 @@
 var app = require('angular').module('codeNotes');
+import NoteService from './NoteService';
 
-app.factory('NoteService', require('./Note'));
+
+app.factory('NoteService', NoteService);

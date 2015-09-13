@@ -3,6 +3,7 @@ var uglify = require('gulp-uglify');
 var htmlreplace = require('gulp-html-replace');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
+var babelify = require('babelify');
 var watchify = require('watchify');
 var streamify = require('gulp-streamify');
 
@@ -31,11 +32,14 @@ gulp.task('watch', function() {
   }));
 
   return watcher.on('update', function() {
-    watcher.bundle()
+    watcher
+      .transform(babelify)
+      .bundle()
       .pipe(source(path.OUT))
       .pipe(gulp.dest(path.DEST_SRC))
   })
   // so we bundle and pipe to dist folder before any updates occur. updates then will overwrite
+    .transform(babelify)
     .bundle()
     .pipe(source(path.OUT))
     .pipe(gulp.dest(path.DEST_SRC));
@@ -45,6 +49,7 @@ gulp.task('build', function(){
   browserify({
     entries: [path.ENTRY_POINT]
   })
+    .transform(babelify)
     .bundle()
     .pipe(source(path.MINIFIED_OUT))
     .pipe(streamify(uglify(path.MINIFIED_OUT)))

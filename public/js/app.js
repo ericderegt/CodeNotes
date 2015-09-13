@@ -2,11 +2,10 @@ var angular = require('angular');
 require('angular-route');
 require('angular-resource');
 
-// require('./services');
-
 var app = angular.module('codeNotes', ['ngRoute', 'ngResource']);
 
 require('./controllers');
+require('./services');
 
 app.config(function ($routeProvider) {
 

@@ -1,6 +1,7 @@
-module.exports = function($scope, NoteService) {
-  // Note.query(function(data) {
-  //   $scope.notes = data;
-  // });
-  $scope.notes = 'test';
+export default function($scope, NoteService) {
+  NoteService.query(function(data) {
+    $scope.notes = data;
+  });
+
+  $scope.test = 'huh';
 };
