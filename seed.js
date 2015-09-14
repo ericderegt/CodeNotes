@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var config = require('./config/config')['development'];
 
 var Note = require('./app/models/note');
+var Category = require('./app/models/category');
 
 mongoose.connect(config.db);
 var db = mongoose.connection;
@@ -10,16 +11,31 @@ db.once('open', function() {
   
   Note.remove({}, function() {
     console.log('deleted all Notes');
+
+    seedNotes.map(function(seed) {
+      var note = new Note({
+        title: seed.title,
+        content: seed.content,
+        link: seed.link,
+        category: seed.category
+      });
+
+      note.save();
+
+      console.log('note saved');
+    });
   });
 
-  seedNotes.map(function(seed) {
-    var note = new Note({
-      title: seed.title,
-      content: seed.content,
-      link: seed.link
-    });
+  Category.remove({}, function() {
+    console.log('deleted all Categories');
 
-    note.save();
+    seedCategories.map(function(seed) {
+      var category = new Category({
+        name: seed.name
+      });
+
+      category.save();
+    });
   });
 
 });
@@ -42,5 +58,17 @@ var seedNotes = [
     content: "Training site",
     link: "http://www.react-training.com",
     category: "JavaScript"
+  }
+];
+
+var seedCategories = [
+  {
+    name: "JavaScript"
+  },
+  {
+    name: "iOS"
+  },
+  {
+    name: "Ruby"
   }
 ];

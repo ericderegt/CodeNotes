@@ -3,12 +3,17 @@
     <div class="panel panel-default">
       <div class="panel-heading panel-title">
         {{note.title}}
-        <button type="button" class="btn btn-link" ng-click="deleteNote(note._id)">
-          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-        </button>
       </div>
       <div class="panel-body">
         {{note.content}}
+      </div>
+      <div class="panel-footer">
+        <a href="{{note.link}}" target="_blank">
+          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+        </a>
+        <button type="button" class="btn btn-link" ng-click="deleteNote(note._id)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </div>

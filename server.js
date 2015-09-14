@@ -10,6 +10,7 @@ require('./config/express')(app, config);
 require('./config/mongoose')(config);
 
 require('./app/routes/notes')(app);
+require('./app/routes/categories')(app);
 
 
 app.listen(config.port);

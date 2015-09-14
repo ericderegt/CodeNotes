@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 // Requiring models so they are registered before app starts
 var Note = require('../app/models/note');
+var Category = require('../app/models/category');
 
 
 module.exports = function(config) {
