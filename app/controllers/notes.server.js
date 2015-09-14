@@ -24,3 +24,17 @@ exports.delete = function(req, res) {
     };
   });
 };
+
+exports.create = function(req, res) {
+  var note = new Note(req.body);
+  
+  note.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: 'error'
+      });
+    } else {
+      res.json(note);
+    };
+  });
+};

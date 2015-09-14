@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add A Note</h3>
+</div>
+<div class="modal-body">
+    <form ng-submit="submit()" novalidate>
+        <div class="form-group">
+            <label for="title" control-label>Title</label>
+            <input type="text" ng-model="note.title" class="form-control" id="title" placeholder="Title"/>
+        </div>
+        <div class="form-group">
+            <label for="link" control-label>Link</label>
+            <input type="text" ng-model="note.link" class="form-control" id="link" placeholder="Link"/>
+        </div>
+        <div class="form-group">
+            <label for="content" control-label>Content</label>
+            <input type="text" ng-model="note.content" class="form-control" id="content" placeholder="Content"/>
+        </div>
+        <div class="form-group">
+            <label for="Category" control-label>Category</label>
+            <input type="text" ng-model="note.category" class="form-control" id="category" placeholder="Category"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success"/>
+            <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
