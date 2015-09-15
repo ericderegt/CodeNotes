@@ -2,6 +2,10 @@ export default function ($scope, $modalInstance, NoteService, CategoryService) {
   $scope.note = new NoteService();
   $scope.category = new CategoryService();
 
+  CategoryService.query(function(data) {
+    $scope.categories = data;
+  });
+
   $scope.submitNote = function () {
     $scope.note.$save(function() {
       $modalInstance.close('close modal');

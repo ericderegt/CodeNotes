@@ -1,5 +1,5 @@
 <div ng-controller="NoteCtrl">
-  <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="note in notes">
+  <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="note in notes | filter: searchQuery | filter: categorySelected">
     <div class="panel panel-default">
       <div class="panel-heading panel-title">
         {{note.title}}

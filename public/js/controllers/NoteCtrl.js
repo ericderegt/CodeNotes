@@ -16,4 +16,11 @@ export default function($scope, NoteService) {
       $scope.notes = data;
     });
   };
+
+  $scope.categorySelected = '';
+
+  $scope.$on('categoryChange', function(event, data) {
+    $scope.categorySelected = data;
+    console.log(data);
+  });
 };

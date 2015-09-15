@@ -54,4 +54,8 @@ export default function ($scope, $rootScope, $modal, $log, CategoryService) {
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
+
+  $scope.changeCategory = function(selectedCategory) {
+    $scope.$broadcast('categoryChange', selectedCategory);
+  };
 };
