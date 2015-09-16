@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h3 class="modal-title">Register an Account</h3>
+</div>
+<div class="modal-body">
+    <form ng-submit="submitRegister()" novalidate>
+        <div class="form-group">
+            <label for="title" control-label>Username</label>
+            <input type="text" ng-model="note.title" class="form-control" id="title" placeholder="Username"/>
+        </div>
+        <div class="form-group">
+            <label for="link" control-label>Email</label>
+            <input type="text" ng-model="note.link" class="form-control" id="link" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+            <label for="content" control-label>Password</label>
+            <input type="text" ng-model="note.content" class="form-control" id="content" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+            <label for="content" control-label>Password Confirmation</label>
+            <input type="text" ng-model="note.content" class="form-control" id="content" placeholder="Password Confirmation"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success"/>
+            <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

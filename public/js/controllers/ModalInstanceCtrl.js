@@ -18,6 +18,17 @@ export default function ($scope, $modalInstance, NoteService, CategoryService) {
     });
   };
 
+// NEED TO UPDATE THESE TWO METHODS
+  $scope.submitLogin = function () {
+    $modalInstance.dismiss('cancel');
+    console.log('login');
+  };
+
+  $scope.submitRegister = function () {
+    $modalInstance.dismiss('cancel');
+    console.log('register');
+  };
+
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };

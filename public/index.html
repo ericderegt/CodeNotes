@@ -19,8 +19,8 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a ng-click="openNote()">Add Note +</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register">Register</a></li>
+          <li><a ng-click="openLogin()">Login</a></li>
+          <li><a ng-click="openRegister()">Register</a></li>
         </ul>
         <form class="navbar-form navbar-right">
           <input type="text" class="form-control" placeholder="Search..." ng-model="searchQuery">
@@ -42,6 +42,12 @@
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div ng-show="userIsLoggedOut">
+          <div class="well">
+            <h5>CodeNotes is a place to keep all of your programming related notes. Log-in to add and delete your own notes.</h5>
+          </div>
+          <hr>
+        </div>
         <ng-view></ng-view>
       </div>
     </div>
