@@ -25,11 +25,13 @@ gulp.task('copy', function() {
 gulp.task('watch', function() {
   gulp.watch(path.HTML, ['copy']);
 
-  var watcher = watchify(browserify({
+  var bundler = browserify({
     entries: [path.ENTRY_POINT],
     debug: true,
     cache: {}, packageCache: {}, fullPaths: true
-  }));
+  });
+
+  var watcher = watchify(bundler);
 
   return watcher.on('update', function() {
     watcher

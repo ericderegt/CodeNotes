@@ -3,7 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-
+var passport = require('passport');
 
 module.exports = function(app, config) {
 
@@ -22,5 +22,8 @@ module.exports = function(app, config) {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use(express.static(config.rootPath + '/public'));
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 };
 

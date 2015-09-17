@@ -9,8 +9,12 @@ require('./config/express')(app, config);
 // initialize mongoose connection and register models
 require('./config/mongoose')(config);
 
+require('./config/passport')();
+
+
 require('./app/routes/notes')(app);
 require('./app/routes/categories')(app);
+require('./app/routes/users')(app);
 
 
 app.listen(config.port);

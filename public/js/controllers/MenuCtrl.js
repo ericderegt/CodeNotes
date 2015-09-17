@@ -32,7 +32,7 @@ export default function ($scope, $rootScope, $modal, $log, CategoryService) {
     modalInstance.result.then(function (newNote) {
       $rootScope.$broadcast('newNote:broadcast', 'newNote!');
     }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+      $log.info('Modal was dismissed at ' + new Date());
     });
   };
 
