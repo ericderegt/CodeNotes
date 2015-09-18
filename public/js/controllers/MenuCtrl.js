@@ -1,5 +1,8 @@
-export default function ($scope, $rootScope, $modal, $log, CategoryService) {
+export default function ($scope, $rootScope, $http, $location, $modal, $log, CategoryService) {
   $scope.animationsEnabled = true;
+
+// Toggle this on user login to determine whether or not to show Header on index.html
+  $scope.userIsLoggedOut = true;
 
   CategoryService.query(function(data) {
     $scope.categories = data;
@@ -10,6 +13,14 @@ export default function ($scope, $rootScope, $modal, $log, CategoryService) {
     CategoryService.query(function(data) {
       $scope.categories = data;
     });
+  });
+
+  $scope.$on('login', function(event, data) {
+    $scope.userIsLoggedOut = false;
+  });
+
+  $scope.$on('logout', function(event, data) {
+    $scope.userIsLoggedOut = true;
   });
 
   $scope.deleteCategory = function(catId) {
@@ -60,12 +71,6 @@ export default function ($scope, $rootScope, $modal, $log, CategoryService) {
       controller: 'ModalInstanceCtrl',
       size: size,
     });
-
-    modalInstance.result.then(function (newLogin) {
-      // $rootScope.$broadcast('newCategory:broadcast', 'newCategory!');
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
   };
 
   $scope.openRegister = function (size) {
@@ -78,13 +83,21 @@ export default function ($scope, $rootScope, $modal, $log, CategoryService) {
     });
 
     modalInstance.result.then(function (newRegister) {
-      // $rootScope.$broadcast('newCategory:broadcast', 'newCategory!');
+      $rootScope.$broadcast('login', 'logged in');
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
 
-
+  $scope.logout = function() {
+    $http.get('/logout').
+      then(function(response) {
+        $rootScope.$broadcast('logout', 'logged out');
+        $location.path('/');
+      }, function(response) {
+        // add error handling
+      });
+  };
 
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
@@ -93,7 +106,4 @@ export default function ($scope, $rootScope, $modal, $log, CategoryService) {
   $scope.changeCategory = function(selectedCategory) {
     $scope.$broadcast('categoryChange', selectedCategory);
   };
-
-// Toggle this on user login to determine whether or not to show Header on index.html
-  $scope.userIsLoggedOut = true;
 };

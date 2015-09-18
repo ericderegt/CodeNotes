@@ -1,6 +1,7 @@
-export default function ($scope, $modalInstance, NoteService, CategoryService) {
+export default function ($scope, $http, $rootScope, $modalInstance, NoteService, CategoryService) {
   $scope.note = new NoteService();
   $scope.category = new CategoryService();
+  $scope.user = {};
 
   CategoryService.query(function(data) {
     $scope.categories = data;
@@ -14,19 +15,28 @@ export default function ($scope, $modalInstance, NoteService, CategoryService) {
 
   $scope.submitCategory = function () {
     $scope.category.$save(function() {
-      $modalInstance.close('close modal');
+      $msodalInstance.close('close modal');
     });
   };
 
 // NEED TO UPDATE THESE TWO METHODS
   $scope.submitLogin = function () {
-    $modalInstance.dismiss('cancel');
-    console.log('login');
+    $http.post('/login', $scope.user).
+      then(function(response) {
+        $rootScope.$broadcast('login', 'logged in');
+        $modalInstance.close('close modal');
+      }, function(response) {
+        $modalInstance.close('close modal');
+      });
   };
 
   $scope.submitRegister = function () {
-    $modalInstance.dismiss('cancel');
-    console.log('register');
+    $http.post('/register', $scope.user).
+      then(function(response) {
+        $modalInstance.close('close modal');
+      }, function(response) {
+        $modalInstance.close('close modal');
+      });
   };
 
   $scope.cancel = function () {

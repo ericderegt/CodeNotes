@@ -5,11 +5,11 @@
     <form ng-submit="submitLogin()" novalidate>
         <div class="form-group">
             <label for="title" control-label>Username</label>
-            <input type="text" ng-model="note.title" class="form-control" id="title" placeholder="Username"/>
+            <input type="text" ng-model="user.username" class="form-control" id="username" placeholder="Username"/>
         </div>
         <div class="form-group">
             <label for="link" control-label>Password</label>
-            <input type="text" ng-model="note.link" class="form-control" id="link" placeholder="Password"/>
+            <input type="password" ng-model="user.password" class="form-control" id="password" placeholder="Password"/>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-success"/>

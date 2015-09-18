@@ -4,6 +4,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
+var session = require('express-session');
 
 module.exports = function(app, config) {
 
@@ -21,6 +22,7 @@ module.exports = function(app, config) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
+  app.use(session({ secret: 'blahhhh' }));
   app.use(express.static(config.rootPath + '/public'));
 
   app.use(passport.initialize());

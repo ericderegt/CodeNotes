@@ -18,9 +18,10 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a ng-click="openNote()">Add Note +</a></li>
-          <li><a ng-click="openLogin()">Login</a></li>
-          <li><a ng-click="openRegister()">Register</a></li>
+          <li><a ng-show="!userIsLoggedOut" ng-click="openNote()">Add Note +</a></li>
+          <li><a ng-show="userIsLoggedOut" ng-click="openLogin()">Login</a></li>
+          <li><a ng-show="userIsLoggedOut" ng-click="openRegister()">Register</a></li>
+          <li><a ng-show="!userIsLoggedOut" ng-click="logout()">Logout</a></li>
         </ul>
         <form class="navbar-form navbar-right">
           <input type="text" class="form-control" placeholder="Search..." ng-model="searchQuery">
@@ -37,8 +38,8 @@
           <li ng-repeat="category in categories"><a ng-click="changeCategory(category.name)">{{category.name}}</a><span class="remove-list" ng-click="deleteCategory(category._id)"></span></li>
         </ul>
         <ul class="nav nav-sidebar">
-          <li><a ng-click="openCategory('sm')">Add Category</a></li>
-          <li><a ng-click="openNote()">Add Note</a></li>
+          <li><a ng-show="!userisLoggedOut" ng-click="openCategory('sm')">Add Category</a></li>
+          <li><a ng-show="!userisLoggedOut" ng-click="openNote()">Add Note</a></li>
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
