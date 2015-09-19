@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
   Category = mongoose.model('Category');
 
+// List all categories (GET api/categories)
 exports.list = function(req, res) {
   Category.find().exec(function(err,categories) {
     if (err) {
@@ -13,6 +14,7 @@ exports.list = function(req, res) {
   });
 };
 
+// Delete category (DELETE api/categories/:id)
 exports.delete = function(req, res) {
   Category.remove({ _id: req.params.categoryId }, function(err) {
     if (err) {
@@ -25,6 +27,7 @@ exports.delete = function(req, res) {
   });
 };
 
+// Create category (POST api/categories)
 exports.create = function(req, res) {
   var category = new Category(req.body);
   

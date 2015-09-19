@@ -7,6 +7,7 @@ var babelify = require('babelify');
 var watchify = require('watchify');
 var streamify = require('gulp-streamify');
 
+// Keeping alll folder and file inputs here and then reference for specific tasks below
 var path = {
   HTML: 'public/index.html',
   MINIFIED_OUT: 'build.min.js',
@@ -22,6 +23,7 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(path.DEST));
 });
 
+// watch called as part of default task / only in production
 gulp.task('watch', function() {
   gulp.watch(path.HTML, ['copy']);
 
@@ -47,6 +49,7 @@ gulp.task('watch', function() {
     .pipe(gulp.dest(path.DEST_SRC));
 });
 
+// build task for production only
 gulp.task('build', function(){
   browserify({
     entries: [path.ENTRY_POINT]
@@ -58,6 +61,7 @@ gulp.task('build', function(){
     .pipe(gulp.dest(path.DEST_BUILD));
 });
 
+// replaceHTML changes JS file we are including in our index.html
 gulp.task('replaceHTML', function(){
   gulp.src(path.HTML)
     .pipe(htmlreplace({

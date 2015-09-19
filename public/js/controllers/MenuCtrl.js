@@ -1,9 +1,7 @@
 export default function ($scope, $rootScope, $http, $location, $modal, $log, CategoryService) {
   $scope.animationsEnabled = true;
 
-// Toggle this on user login to determine whether or not to show Header on index.html
-  $scope.userIsLoggedOut = true;
-
+// Load data when app launches
   CategoryService.query(function(data) {
     $scope.categories = data;
   });
@@ -14,6 +12,9 @@ export default function ($scope, $rootScope, $http, $location, $modal, $log, Cat
       $scope.categories = data;
     });
   });
+
+// Toggle this on user login to determine whether or not to show Header on index.html
+  $scope.userIsLoggedOut = true;
 
   $scope.$on('login', function(event, data) {
     $scope.userIsLoggedOut = false;
@@ -31,6 +32,9 @@ export default function ($scope, $rootScope, $http, $location, $modal, $log, Cat
     });
   };
 
+
+// open methods below open and handle the four modals on the page.
+// they are also broadcasting different events, which either reload data or change login status
   $scope.openNote = function (size) {
 
     var modalInstance = $modal.open({

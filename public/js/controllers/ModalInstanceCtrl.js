@@ -7,6 +7,7 @@ export default function ($scope, $http, $rootScope, $modalInstance, NoteService,
     $scope.categories = data;
   });
 
+// these methods communicate post requests to server for notes, categories, and users
   $scope.submitNote = function () {
     $scope.note.$save(function() {
       $modalInstance.close('close modal');
@@ -15,11 +16,10 @@ export default function ($scope, $http, $rootScope, $modalInstance, NoteService,
 
   $scope.submitCategory = function () {
     $scope.category.$save(function() {
-      $msodalInstance.close('close modal');
+      $modalInstance.close('close modal');
     });
   };
 
-// NEED TO UPDATE THESE TWO METHODS
   $scope.submitLogin = function () {
     $http.post('/login', $scope.user).
       then(function(response) {
@@ -39,6 +39,7 @@ export default function ($scope, $http, $rootScope, $modalInstance, NoteService,
       });
   };
 
+// dismiss modal when user clicks canel
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };

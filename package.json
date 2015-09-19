@@ -36,12 +36,20 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "angular-mocks": "^1.4.6",
     "babelify": "^6.3.0",
     "browserify": "^11.0.1",
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-html-replace": "^1.5.1",
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^1.4.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0"
   }

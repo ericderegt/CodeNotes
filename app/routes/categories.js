@@ -1,7 +1,7 @@
 var categories = require('../controllers/categories.server');
 
 module.exports = function(app) {
-  // Notes Routes
+  // Categories Routes
   app.route('/api/categories')
     .get(categories.list)
     .post(categories.create);
