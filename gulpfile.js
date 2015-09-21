@@ -4,6 +4,7 @@ var htmlreplace = require('gulp-html-replace');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var babelify = require('babelify');
+var glob = require('glob');
 var watchify = require('watchify');
 var streamify = require('gulp-streamify');
 
@@ -68,6 +69,19 @@ gulp.task('replaceHTML', function(){
       'js': 'build/' + path.MINIFIED_OUT
     }))
     .pipe(gulp.dest(path.DEST));
+});
+
+// browserify unit test files so that 
+gulp.task('browserify-unit-tests', function() {
+  var bundler = browserify();
+  glob.sync('./test/unit/*.js')
+  .forEach(function(file) {
+    bundler.add(file);
+  });
+  return bundler
+  .bundle({ debug: true })
+  .pipe(source('browserified_tests.js'))
+  .pipe(gulp.dest('./test/unit'));
 });
 
 gulp.task('default', ['watch']);

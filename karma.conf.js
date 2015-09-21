@@ -9,7 +9,7 @@ module.exports = function(config){
       'node_modules/angular-resource/angular-resource.js',
       'node_modules/angular-bootstrap-npm/dist/angular-bootstrap.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'app/public/js/**/*.js',
+      'public/dist/**/*.js',
       'test/unit/*.js',
       'test/e2e/*.js'
     ],
